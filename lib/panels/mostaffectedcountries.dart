@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+final formatter = new NumberFormat("#,###");
 
 class MostAffectedPanel extends StatelessWidget {
   final List countryData;
@@ -32,7 +35,7 @@ class MostAffectedPanel extends StatelessWidget {
                   width: 10,
                 ),
                 Text(
-                  'Deaths: ' + countryData[index]['deaths'].toString(),
+                  'Deaths: ' + formatter.format(countryData[index]['deaths']),
                   style:
                       TextStyle(color: Colors.red, fontWeight: FontWeight.bold),
                 )

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+final formatter = new NumberFormat("#,###");
 
 class WorldwidePanel extends StatelessWidget {
   final Map worldData;
@@ -18,25 +21,25 @@ class WorldwidePanel extends StatelessWidget {
             title: 'CONFIRMED',
             textColor: Colors.red,
             panelColor: Colors.red[100],
-            count: worldData['cases'].toString(),
+            count: formatter.format(worldData['cases']),
           ),
           StatusPanel(
             title: 'ACTIVE',
             textColor: Colors.blue[900],
             panelColor: Colors.blue[100],
-            count: worldData['active'].toString(),
+            count: formatter.format(worldData['active']),
           ),
           StatusPanel(
             title: 'RECOVERED',
             textColor: Colors.green,
             panelColor: Colors.green[100],
-            count: worldData['recovered'].toString(),
+            count: formatter.format(worldData['recovered']),
           ),
           StatusPanel(
             title: 'DEATHS',
             textColor: Colors.grey[900],
             panelColor: Colors.grey[400],
-            count: worldData['deaths'].toString(),
+            count: formatter.format(worldData['deaths']),
           ),
         ],
       ),
