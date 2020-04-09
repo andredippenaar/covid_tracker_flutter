@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:covidtrackerflutter/datasource.dart';
+import 'package:covidtrackerflutter/panels/infopanel.dart';
+import 'package:covidtrackerflutter/panels/mostaffectedcountries.dart';
 import 'package:covidtrackerflutter/panels/worldwidepanel.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -11,20 +13,29 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String url = 'https://corona.lmao.ninja/all';
+  String worldUrl = 'https://corona.lmao.ninja/all';
+  String countryUrl = 'https://corona.lmao.ninja/countries';
 
   Map worldData;
-
   fetchWorldWideData() async {
-    http.Response response = await http.get(url);
+    http.Response response = await http.get(worldUrl);
     setState(() {
       worldData = json.decode(response.body);
+    });
+  }
+
+  List countryData;
+  fetchCountryData() async {
+    http.Response response = await http.get(countryUrl);
+    setState(() {
+      countryData = json.decode(response.body);
     });
   }
 
   @override
   void initState() {
     fetchWorldWideData();
+    fetchCountryData();
     super.initState();
   }
 
@@ -83,6 +94,30 @@ class _HomePageState extends State<HomePage> {
                 : WorldwidePanel(
                     worldData: worldData,
                   ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Text(
+                'Most Affected Countries',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+              ),
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
+            countryData == null
+                ? Container()
+                : MostAffectedPanel(
+                    countryData: countryData,
+                  ),
+            InfoPanel(),
+            SizedBox(height: 20.0),
+            Center(
+              child: Text(
+                'WE ARE TOGETHER IN THE FIGHT',
+                style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+              ),
+            ),
+            SizedBox(height: 50.0),
           ],
         ),
       ),
