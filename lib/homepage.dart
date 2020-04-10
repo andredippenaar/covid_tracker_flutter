@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:covidtrackerflutter/datasource.dart';
+import 'package:covidtrackerflutter/pages/countrypage.dart';
 import 'package:covidtrackerflutter/panels/infopanel.dart';
 import 'package:covidtrackerflutter/panels/mostaffectedcountries.dart';
 import 'package:covidtrackerflutter/panels/worldwidepanel.dart';
@@ -74,17 +75,25 @@ class _HomePageState extends State<HomePage> {
                     'Worldwide',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
                   ),
-                  Container(
-                    padding: EdgeInsets.all(10.0),
-                    decoration: BoxDecoration(
-                        color: primaryBlack,
-                        borderRadius: BorderRadius.circular(15.0)),
-                    child: Text(
-                      'Regional',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                          color: Colors.white),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => CountryPage()));
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(10.0),
+                      decoration: BoxDecoration(
+                          color: primaryBlack,
+                          borderRadius: BorderRadius.circular(15.0)),
+                      child: Text(
+                        'Regional',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            color: Colors.white),
+                      ),
                     ),
                   ),
                 ],
