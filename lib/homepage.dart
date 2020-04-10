@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.all(10.0),
               color: Colors.orange[100],
               child: Text(
-                DataSource.quote,
+                DataSource.quote2,
                 style: TextStyle(
                     color: Colors.orange[800],
                     fontWeight: FontWeight.bold,
@@ -113,7 +113,7 @@ class _HomePageState extends State<HomePage> {
             SizedBox(height: 20.0),
             Center(
               child: Text(
-                'WE ARE TOGETHER IN THE FIGHT',
+                DataSource.footer,
                 style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
               ),
             ),
