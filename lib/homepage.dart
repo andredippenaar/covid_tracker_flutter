@@ -4,6 +4,7 @@ import 'package:covidtrackerflutter/datasource.dart';
 import 'package:covidtrackerflutter/panels/infopanel.dart';
 import 'package:covidtrackerflutter/panels/mostaffectedcountries.dart';
 import 'package:covidtrackerflutter/panels/worldwidepanel.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -90,7 +91,14 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             worldData == null
-                ? CircularProgressIndicator()
+//                ? CircularProgressIndicator()
+                ? Container(
+                    child: SpinKitFadingCube(
+                      color: primaryBlack,
+                      size: 75.0,
+                    ),
+                    padding: EdgeInsets.only(bottom: 30.0, top: 20.0),
+                  )
                 : WorldwidePanel(
                     worldData: worldData,
                   ),
