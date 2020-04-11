@@ -16,7 +16,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   String worldUrl = 'https://corona.lmao.ninja/all';
-  String countryUrl = 'https://corona.lmao.ninja/countries';
+  String countryUrl = 'https://corona.lmao.ninja/countries?sort=cases';
 
   Map worldData;
   fetchWorldWideData() async {

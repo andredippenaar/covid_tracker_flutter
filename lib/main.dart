@@ -16,7 +16,10 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: "Circular", primaryColor: primaryBlack),
+      theme: ThemeData(
+          fontFamily: "Circular",
+          primaryColor: primaryBlack,
+          brightness: Brightness.light),
       home: HomePage(),
     );
   }
