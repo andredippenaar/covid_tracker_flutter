@@ -1,3 +1,4 @@
+import 'package:covidtrackerflutter/datasource.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -7,6 +8,17 @@ class Search extends SearchDelegate {
   final List countryList;
 
   Search(this.countryList);
+
+  @override
+  ThemeData appBarTheme(BuildContext context) {
+    return ThemeData(
+        primaryColor: primaryBlack,
+        brightness: Brightness.dark,
+        inputDecorationTheme: InputDecorationTheme(
+          hintStyle:
+              Theme.of(context).textTheme.title.copyWith(color: Colors.white),
+        ));
+  }
 
   @override
   List<Widget> buildActions(BuildContext context) {

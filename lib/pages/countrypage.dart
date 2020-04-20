@@ -14,7 +14,7 @@ class CountryPage extends StatefulWidget {
 }
 
 class _CountryPageState extends State<CountryPage> {
-  String countryUrl = 'https://corona.lmao.ninja/countries?sort=cases';
+  String countryUrl = 'https://corona.lmao.ninja/v2/countries?sort=cases';
 
   List countryData;
   fetchCountryData() async {
