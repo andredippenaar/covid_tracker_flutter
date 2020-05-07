@@ -13,6 +13,7 @@ class WorldwidePanel extends StatelessWidget {
     return Container(
       child: GridView(
         shrinkWrap: true,
+        padding: EdgeInsets.only(bottom: 10.0),
         physics: NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2, childAspectRatio: 2),

@@ -8,6 +8,7 @@ import 'package:covidtrackerflutter/panels/worldwidepanel.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:pie_chart/pie_chart.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -107,7 +108,6 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               worldData == null
-//                ? CircularProgressIndicator()
                   ? Container(
                       child: SpinKitFadingCube(
                         color: primaryBlack,
@@ -118,6 +118,30 @@ class _HomePageState extends State<HomePage> {
                   : WorldwidePanel(
                       worldData: worldData,
                     ),
+              worldData == null
+                  ? Container(
+                      child: SpinKitFadingCube(
+                        color: primaryBlack,
+                        size: 75.0,
+                      ),
+                      padding: EdgeInsets.only(bottom: 30.0, top: 20.0),
+                    )
+                  : PieChart(
+                      dataMap: {
+                        'Active': worldData['active'].toDouble(),
+                        'Recovered': worldData['recovered'].toDouble(),
+                        'Deaths': worldData['deaths'].toDouble(),
+                      },
+                      colorList: [
+                        Colors.blue[100],
+                        Colors.green[100],
+                        Colors.grey[400]
+                      ],
+                      animationDuration: Duration(milliseconds: 800),
+                    ),
+              SizedBox(
+                height: 10.0,
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10.0),
                 child: Text(
