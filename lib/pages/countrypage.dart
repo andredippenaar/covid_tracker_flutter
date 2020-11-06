@@ -88,7 +88,7 @@ class _CountryPageState extends State<CountryPage> {
                         ),
                         Expanded(
                           child: Container(
-                            margin: EdgeInsets.only(left: 40.0),
+                            margin: EdgeInsets.only(left: 20.0),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,

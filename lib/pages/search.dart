@@ -15,8 +15,10 @@ class Search extends SearchDelegate {
         primaryColor: primaryBlack,
         brightness: Brightness.dark,
         inputDecorationTheme: InputDecorationTheme(
-          hintStyle:
-              Theme.of(context).textTheme.title.copyWith(color: Colors.white),
+          hintStyle: Theme.of(context)
+              .textTheme
+              .headline6
+              .copyWith(color: Colors.white),
         ));
   }
 
